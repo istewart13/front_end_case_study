@@ -6,4 +6,13 @@ var Item = function(params) {
   this.quantity = params.quantity;
 };
 
+Item.prototype = {
+  decreaseQuantity: function() {
+    this.quantity -= 1;
+  },
+  inStock: function() {
+    return this.quantity > 0;
+  }
+}
+
 module.exports = Item;

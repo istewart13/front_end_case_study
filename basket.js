@@ -1,3 +1,4 @@
+// TODO - prevent all instance variables from being accesssed directly
 var Basket = function() {
   this.items = [];
   this.voucher = [];
@@ -8,7 +9,13 @@ var Basket = function() {
 
 Basket.prototype = {
   addItem: function(item) {
+    var itemInStock = item.inStock();
+    if (!itemInStock) {
+      // TODO - alert user
+      return;
+    }
     this.items.push(item);
+    item.decreaseQuantity();
     this.subtotal += item.price;
   },
   removeItem: function(item) {
