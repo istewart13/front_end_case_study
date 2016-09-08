@@ -126,4 +126,13 @@ describe('basket', function() {
     assert.equal(94.00, basket.getTotal());
   });
 
+  it('should calculate total with £10 voucher', function() {
+    var basket = new Basket();
+    var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', type: 'Footwear', price: 99.00, quantity: 5});
+    var voucher = new Voucher({code: 'FIEP-CJWM', type: '10off'});
+    basket.addItem(item);
+    basket.applyVoucher(voucher);
+    assert.equal(89.00, basket.getTotal());
+  });
+
 });
