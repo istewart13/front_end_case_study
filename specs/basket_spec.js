@@ -162,4 +162,12 @@ describe('basket', function() {
     assert.equal(0, basket.items.length);
   });
 
+  it('should not be able to add items if stock level moves from 1 to 0', function() {
+    var basket = new Basket();
+    var item = new Item({name: 'Lightweight Patch Pocket Blazer, Deer', category: 'Men’s Formalwear', type: 'Formalwear', price: 175.50, quantity: 1});
+    basket.addItem(item);
+    basket.addItem(item);
+    assert.equal(1, basket.items.length);
+  });
+
 });
