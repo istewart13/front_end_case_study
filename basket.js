@@ -17,17 +17,29 @@ Basket.prototype = {
     this.subtotal -= item.price;
   },
   getSubtotal: function() {
-    return this.subtotal;
+    return this.subtotal.toFixed(2);
+  },
+  getTotal: function() {
+    this.updateTotal();
+    return this.total.toFixed(2);
+  },
+  resetTotal: function() {
+    this.total = this.subtotal + this.discount;
+  },
+  updateTotal: function() {
+    this.total = this.subtotal - this.discount;
   },
   applyVoucher: function(voucher) {
     var voucherValue = voucher.value();
     var voucherIsValid = this.validateVoucher(voucherValue);
     if (!voucherIsValid) {
+      // TODO - alert user
       return;
     }
     this.checkForPreviousVoucher();
     this.voucher.push(voucher);
     this.discount += voucherValue;
+    this.updateTotal();
   },
   checkForPreviousVoucher: function() {
     var anotherVoucherApplied = this.voucher.length > 0;
@@ -36,6 +48,7 @@ Basket.prototype = {
     }
   },
   resetVouchersUsed: function() {
+    this.resetTotal();
     this.voucher = [];
     this.discount = 0;
   },

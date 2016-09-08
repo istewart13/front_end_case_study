@@ -30,7 +30,7 @@ describe('basket', function() {
     var item2 = new Item({name: 'Suede Shoes, Blue', category: 'Women’s Footwear', type: 'Footwear', price: 42.00, quantity: 4});
     basket.addItem(item);
     basket.addItem(item2);
-    assert.equal(141.00, basket.getSubtotal().toFixed(2));
+    assert.equal(141.00, basket.getSubtotal());
   });
 
   it('should calculate total cost after removing item', function() {
@@ -40,7 +40,7 @@ describe('basket', function() {
     basket.addItem(item);
     basket.addItem(item2);
     basket.removeItem(item);
-    assert.equal(42.00, basket.getSubtotal().toFixed(2));
+    assert.equal(42.00, basket.getSubtotal());
   });
 
   it('should be able to use £5 off voucher', function() {
@@ -108,6 +108,13 @@ describe('basket', function() {
     basket.applyVoucher(voucher);
     basket.applyVoucher(voucher2);
     assert.equal(10, basket.discount);
+  });
+
+  it('should calculate total without vouchers', function() {
+    var basket = new Basket();
+    var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', type: 'Footwear', price: 99.00, quantity: 5});
+    basket.addItem(item);
+    assert.equal(99.00, basket.getTotal());
   });
 
 });
