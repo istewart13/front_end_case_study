@@ -7,4 +7,10 @@ describe('basket', function() {
     var basket = new Basket();
     assert.equal(0, basket.items.length);
   });
+  it('should be able to add item', function() {
+    var basket = new Basket();
+    var item = new Item({name:'Almond Toe Court Shoes, Patent Black', category:'Women’s Footwear', price:'99.00', quantity: 5});
+    basket.add(item);
+    assert.equal(1, basket.items.length);
+  });
 });
