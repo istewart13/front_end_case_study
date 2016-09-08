@@ -1,6 +1,5 @@
 var Voucher = function(params) {
   this.code = params.code;
-  this.expiry = params.expiry;
   this.type = params.type;
 };
 
@@ -13,6 +12,3 @@ Voucher.prototype = {
 }
 
 module.exports = Voucher;
-
-// isVoucherValid
-// 

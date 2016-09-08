@@ -61,11 +61,29 @@ describe('basket', function() {
     assert.equal(10, basket.discount);
   });
 
+  it('should not be able to use £10 off voucher if subtotal under £50', function() {
+    var basket = new Basket();
+    var item = new Item({name: 'Flip Flops, Red', category: 'Men’s Footwear', price: 19.00, quantity: 6});
+    var voucher = new Voucher({code: 'FIEP-CJWM', expiry: 1475280000000, type: '10off'});
+    basket.addItem(item);
+    basket.applyVoucher(voucher);
+    assert.equal(0, basket.discount);
+  });
+
+  it('should not be able to use £15 off voucher if subtotal under £75', function() {
+    var basket = new Basket();
+    var item = new Item({name: 'Suede Shoes, Blue', category: 'Women’s Footwear', price: 42.00, quantity: 4});
+    var voucher = new Voucher({code: 'URND-LDJR', expiry: 1475280000000, type: '15off'});
+    basket.addItem(item);
+    basket.applyVoucher(voucher);
+    assert.equal(0, basket.discount);
+  });
+
   it('should only apply the latest voucher added to the basket', function() {
     var basket = new Basket();
     var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', price: 99.00, quantity: 5});
-    var voucher = new Voucher({code: 'SXFP-CHYK', expiry: 1475280000000, type: '05off'});
-    var voucher2 = new Voucher({code: 'FIEP-CJWM', expiry: 1475280000000, type: '10off'});
+    var voucher = new Voucher({code: 'SXFP-CHYK', type: '05off'});
+    var voucher2 = new Voucher({code: 'FIEP-CJWM', type: '10off'});
     basket.addItem(item);
     basket.applyVoucher(voucher);
     basket.applyVoucher(voucher2);
