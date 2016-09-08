@@ -13,4 +13,14 @@ describe('item', function() {
     assert.equal('Women’s Footwear', item.category);
   });
 
+  it('should have a price', function() {
+    var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', price: 99.00, quantity: 5});
+    assert.equal(99.00, item.price);
+  });
+
+  it('should have a quantity', function() {
+    var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', price: 99.00, quantity: 5});
+    assert.equal(5, item.quantity);
+  });
+
 });
