@@ -43,8 +43,16 @@ Basket.prototype = {
     this.voucher = [];
     this.discount = 0;
   },
+  footwearCheck: function() {
+    for(var item of this.items){
+      if (item.type === "Footwear") {
+        return true;
+      }
+    }
+  },
   validateVoucher: function(voucherValue) {
     // TODO - add test for footwear
+    var footwearInBasket = this.footwearCheck();
     if (voucherValue === 5) {
       return true;
     } else if (voucherValue === 10) {
@@ -55,7 +63,7 @@ Basket.prototype = {
       }
     } else if (voucherValue === 15) {
       // TODO - add test for footwear
-      if (this.subtotal > 75) {
+      if (this.subtotal > 75 && footwearInBasket) {
         return true;
       } else {
         return false;
