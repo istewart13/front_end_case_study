@@ -26,11 +26,9 @@ Basket.prototype = {
     if (!voucherIsValid) {
       return;
     }
-
     this.checkForPreviousVoucher();
     this.voucher.push(voucher);
     this.discount += voucherValue;
-    // TODO - apply validation on vouchers used
   },
   checkForPreviousVoucher: function() {
     var anotherVoucherApplied = this.voucher.length > 0;
@@ -51,24 +49,32 @@ Basket.prototype = {
     }
   },
   validateVoucher: function(voucherValue) {
-    // TODO - add test for footwear
     var footwearInBasket = this.footwearCheck();
-    if (voucherValue === 5) {
-      return true;
-    } else if (voucherValue === 10) {
-      if (this.subtotal > 50) {
-        return true;
-      } else {
-        return false;
-      }
-    } else if (voucherValue === 15) {
-      // TODO - add test for footwear
-      if (this.subtotal > 75 && footwearInBasket) {
-        return true;
-      } else {
-        return false;
-      }
+    switch(voucherValue) {
+        case 5:
+          return true;
+        case 10:
+          if (this.subtotal > 50) { return true; }
+        case 15:
+          if (this.subtotal > 75 && footwearInBasket) { return true; }
+        default:
+          return false;
     }
+
+
+
+
+    // if (voucherValue === 5) {
+      
+    // } else if (voucherValue === 10) {
+      
+    // } else if (voucherValue === 15) {
+    //   if (this.subtotal > 75 && footwearInBasket) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
   }
 }
 
