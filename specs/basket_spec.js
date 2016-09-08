@@ -138,10 +138,21 @@ describe('basket', function() {
   it('should calculate total with £15 voucher', function() {
     var basket = new Basket();
     var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', type: 'Footwear', price: 99.00, quantity: 5});
-    var voucher = new Voucher({code: 'URND-LDJR', expiry: 1475280000000, type: '15off'});
+    var voucher = new Voucher({code: 'URND-LDJR', type: '15off'});
     basket.addItem(item);
     basket.applyVoucher(voucher);
     assert.equal(84.00, basket.getTotal());
+  });
+
+  it('should calculate total using latest voucher when multiple are applied', function() {
+    var basket = new Basket();
+    var item = new Item({name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', type: 'Footwear', price: 99.00, quantity: 5});
+    var voucher = new Voucher({code: 'URND-LDJR', type: '15off'});
+    var voucher2 = new Voucher({code: 'FIEP-CJWM', type: '10off'});
+    basket.addItem(item);
+    basket.applyVoucher(voucher);
+    basket.applyVoucher(voucher2);
+    assert.equal(89.00, basket.getTotal());
   });
 
 });
