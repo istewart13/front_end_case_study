@@ -23,9 +23,6 @@ Basket.prototype = {
     this.updateTotal();
     return this.total.toFixed(2);
   },
-  resetTotal: function() {
-    this.total = this.subtotal + this.discount;
-  },
   updateTotal: function() {
     this.total = this.subtotal - this.discount;
   },
@@ -39,7 +36,6 @@ Basket.prototype = {
     this.checkForPreviousVoucher();
     this.voucher.push(voucher);
     this.discount += voucherValue;
-    this.updateTotal();
   },
   checkForPreviousVoucher: function() {
     var anotherVoucherApplied = this.voucher.length > 0;
@@ -48,7 +44,6 @@ Basket.prototype = {
     }
   },
   resetVouchersUsed: function() {
-    this.resetTotal();
     this.voucher = [];
     this.discount = 0;
   },
