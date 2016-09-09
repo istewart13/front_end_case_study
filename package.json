@@ -13,6 +13,7 @@
     "webpack": "^1.13.2"
   },
   "dependencies": {
+    "mocha": "^3.0.2",
     "express": "^4.14.0"
   },
   "repository": {
