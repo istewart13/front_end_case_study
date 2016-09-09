@@ -79,13 +79,12 @@
 	
 	Basket.prototype = {
 	  addItem: function(item) {
-	    var itemInStock = item.inStock();
-	    if (!itemInStock) {
-	      // TODO - alert user
+	    if (item.quantity <= 0) {
 	      return;
 	    }
+	    // TODO - alert user
 	    this.items.push(item);
-	    item.decreaseQuantity();
+	    item.quantity -= 1;
 	    this.subtotal += item.price;
 	  },
 	  removeItem: function(item) {
@@ -127,14 +126,14 @@
 	  validateVoucher: function(voucherValue) {
 	    var footwearInBasket = this.footwearCheck();
 	    switch(voucherValue) {
-	        case 5:
-	          return true;
-	        case 10:
-	          if (this.subtotal > 50) { return true; }
-	        case 15:
-	          if (this.subtotal > 75 && footwearInBasket) { return true; }
-	        default:
-	          return false;
+	      case 5:
+	      return true;
+	      case 10:
+	      if (this.subtotal > 50) { return true; }
+	      case 15:
+	      if (this.subtotal > 75 && footwearInBasket) { return true; }
+	      default:
+	      return false;
 	    }
 	  },
 	  footwearCheck: function() {
@@ -328,38 +327,51 @@
 	
 	HomeView.prototype = {
 	  render: function() {
-	    this.createBasketDisplay();
+	    this.renderBasket();
 	    var itemList = document.getElementById('item-list');
 	    for (var item of this.itemsArray) {
 	      itemList.appendChild(this.createItemDisplay(item));
 	    }
 	  },
-	  createBasketDisplay: function() {
-	    
+	  addToBasket: function(item) {
+	    this.basket.addItem(item);
+	  },
+	  renderBasket: function() {
+	    // var basketList = document.getElementById('basket-list');
+	    // for (var item of this.basket.items) {
+	    //   basketList.appendChild(this.createItemDisplay(item));
+	    // }
 	  },
 	  createItemDisplay: function(item) {
-	      var container = document.createElement("li");
-	      var itemDiv = document.createElement("div");
-	      var itemName = document.createElement("p");
-	      var itemCategory = document.createElement("p");
-	      var itemPrice = document.createElement("p");
-	      var itemQuantity = document.createElement("p");
-	      var image = document.createElement("p");
+	    var container = document.createElement("li");
+	    var itemDiv = document.createElement("div");
+	    var itemName = document.createElement("p");
+	    var itemAdd = document.createElement("p");
+	    var itemCategory = document.createElement("p");
+	    var itemPrice = document.createElement("p");
+	    var itemQuantity = document.createElement("p");
+	    var image = document.createElement("p");
 	
-	      itemName.innerHTML = item.name;
-	      itemCategory.innerHTML = "Category: " + item.category;
-	      itemPrice.innerHTML = "Price: £" + item.price;
-	      itemQuantity.innerHTML = "Quantity: " + item.quantity;
-	      image.innerHTML = "<img src=\"" + item.image + "\">";
+	    itemName.innerHTML = item.name;
+	    itemAdd.innerHTML = '<p>Add to basket</p>';
+	    itemAdd.onclick = function() {
+	      this.addToBasket(item);
+	      this.renderBasket();
+	    }.bind(this);
+	    itemCategory.innerHTML = "Category: " + item.category;
+	    itemPrice.innerHTML = "Price: £" + item.price;
+	    itemQuantity.innerHTML = "Quantity: " + item.quantity;
+	    image.innerHTML = "<img src=\"" + item.image + "\">";
 	
-	      itemDiv.appendChild(itemName);
-	      itemDiv.appendChild(itemCategory);
-	      itemDiv.appendChild(itemPrice);
-	      itemDiv.appendChild(itemQuantity);
-	      itemDiv.appendChild(image);
+	    itemDiv.appendChild(itemName);
+	    itemDiv.appendChild(itemAdd);
+	    itemDiv.appendChild(itemCategory);
+	    itemDiv.appendChild(itemPrice);
+	    itemDiv.appendChild(itemQuantity);
+	    itemDiv.appendChild(image);
 	
-	      container.appendChild(itemDiv);
-	      return container;
+	    container.appendChild(itemDiv);
+	    return container;
 	  }
 	}
 	

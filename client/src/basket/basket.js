@@ -9,13 +9,12 @@ var Basket = function() {
 
 Basket.prototype = {
   addItem: function(item) {
-    var itemInStock = item.inStock();
-    if (!itemInStock) {
-      // TODO - alert user
+    if (item.quantity <= 0) {
       return;
     }
+    // TODO - alert user
     this.items.push(item);
-    item.decreaseQuantity();
+    item.quantity -= 1;
     this.subtotal += item.price;
   },
   removeItem: function(item) {
@@ -57,14 +56,14 @@ Basket.prototype = {
   validateVoucher: function(voucherValue) {
     var footwearInBasket = this.footwearCheck();
     switch(voucherValue) {
-        case 5:
-          return true;
-        case 10:
-          if (this.subtotal > 50) { return true; }
-        case 15:
-          if (this.subtotal > 75 && footwearInBasket) { return true; }
-        default:
-          return false;
+      case 5:
+      return true;
+      case 10:
+      if (this.subtotal > 50) { return true; }
+      case 15:
+      if (this.subtotal > 75 && footwearInBasket) { return true; }
+      default:
+      return false;
     }
   },
   footwearCheck: function() {
