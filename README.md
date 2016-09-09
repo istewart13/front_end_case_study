@@ -23,7 +23,7 @@ With additional time I would have linked the models up the the view using the pr
 ## Installation
 
 Provide code examples and explanations of how to get the project.
-To run the code:
+To run the code:<br>
 1) Clone the repository: git clone https://github.com/istewart13/front_end_case_study<br>
 2) Navigate to: front_end_case_study<br>
 3) Run: npm install<br>
@@ -31,6 +31,6 @@ To run the code:
 
 ## Tests
 
-1) Navigate to: front_end_case_study/client/src/basket
-2) Run: npm install mocha
+1) Navigate to: front_end_case_study/client/src/basket<br>
+2) Run: npm install mocha<br>
 3) Run: npm test
