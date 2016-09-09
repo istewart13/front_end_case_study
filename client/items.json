@@ -5,7 +5,7 @@ module.exports = [
     "type": "Footwear",
     "price": 99.00,
     "quantity": 5,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=61954405",
     "saleItem": false
   },
   {
@@ -14,7 +14,7 @@ module.exports = [
     "type": "Footwear",
     "price": 42.00,
     "quantity": 4,
-    "image": "...",
+    "image": "http://s1.thcdn.com/productimg/300/300/10989724-3864278809677479.jpg",
     "saleItem": false
   },
   {
@@ -23,7 +23,7 @@ module.exports = [
     "type": "Footwear",
     "price": 34.00,
     "quantity": 12,
-    "image": "...",
+    "image": "http://i.ebayimg.com/images/g/JU4AAOSwa-dWmWxq/s-l300.jpg",
     "saleItem": false
   },
   {
@@ -32,7 +32,7 @@ module.exports = [
     "type": "Footwear",
     "price": 19.00,
     "quantity": 6,
-    "image": "...",
+    "image": "https://asset3.surfcdn.com/billabong-flip-flops-billabong-sunlight-slaps-flip-flops-red-hot.jpg?w=300&h=300&r=4&q=80&o=AJ8aTLoRI29CZterMoV6$CELjWAj&V=2fJF",
     "saleItem": false
   },
   {
@@ -41,7 +41,7 @@ module.exports = [
     "type": "Footwear",
     "price": 19.00,
     "quantity": 0,
-    "image": "...",
+    "image": "http://www.flipflopsuk.co.uk/wp-content/uploads/2012/03/Mens-Havaianas-Top-Flip-Flops-Blue-Sky-300x300.jpg",
     "saleItem": false
   },
   {
@@ -50,7 +50,7 @@ module.exports = [
     "type": "Casualwear",
     "price": 167.00,
     "quantity": 6,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=20365315",
     "saleItem": false
   },
   {
@@ -59,7 +59,7 @@ module.exports = [
     "type": "Casualwear",
     "price": 30.00,
     "quantity": 5,
-    "image": "...",
+    "image": "https://ak0.scstatic.net/1/cdn2-cont9.sweetcouch.com/141957909851585174-tequila-short-cotton-bright-red-hot.jpg",
     "saleItem": false
   },
   {
@@ -68,7 +68,7 @@ module.exports = [
     "type": "Casualwear",
     "price": 49.99,
     "quantity": 9,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=115600887",
     "saleItem": false
   },
   {
@@ -77,7 +77,7 @@ module.exports = [
     "type": "Casualwear",
     "price": [49.99, 39.99],
     "quantity": 3,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=157338965",
     "saleItem": true
   },
   {
@@ -86,7 +86,7 @@ module.exports = [
     "type": "Formalwear",
     "price": 75.00,
     "quantity": 2,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=29662647",
     "saleItem": false
   },
   {
@@ -95,7 +95,7 @@ module.exports = [
     "type": "Formalwear",
     "price": 175.50,
     "quantity": 1,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=166977563",
     "saleItem": false
   },
   {
@@ -104,7 +104,7 @@ module.exports = [
     "type": "Formalwear",
     "price": 270.00,
     "quantity": 10,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=61463924",
     "saleItem": false
   },
   {
@@ -113,7 +113,7 @@ module.exports = [
     "type": "Formalwear",
     "price": 540.00,
     "quantity": 5,
-    "image": "...",
+    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=125654260",
     "saleItem": false
   }
 ]

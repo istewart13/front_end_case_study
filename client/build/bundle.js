@@ -159,7 +159,7 @@
 	    "type": "Footwear",
 	    "price": 99.00,
 	    "quantity": 5,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=61954405",
 	    "saleItem": false
 	  },
 	  {
@@ -168,7 +168,7 @@
 	    "type": "Footwear",
 	    "price": 42.00,
 	    "quantity": 4,
-	    "image": "...",
+	    "image": "http://s1.thcdn.com/productimg/300/300/10989724-3864278809677479.jpg",
 	    "saleItem": false
 	  },
 	  {
@@ -177,7 +177,7 @@
 	    "type": "Footwear",
 	    "price": 34.00,
 	    "quantity": 12,
-	    "image": "...",
+	    "image": "http://i.ebayimg.com/images/g/JU4AAOSwa-dWmWxq/s-l300.jpg",
 	    "saleItem": false
 	  },
 	  {
@@ -186,7 +186,7 @@
 	    "type": "Footwear",
 	    "price": 19.00,
 	    "quantity": 6,
-	    "image": "...",
+	    "image": "https://asset3.surfcdn.com/billabong-flip-flops-billabong-sunlight-slaps-flip-flops-red-hot.jpg?w=300&h=300&r=4&q=80&o=AJ8aTLoRI29CZterMoV6$CELjWAj&V=2fJF",
 	    "saleItem": false
 	  },
 	  {
@@ -195,7 +195,7 @@
 	    "type": "Footwear",
 	    "price": 19.00,
 	    "quantity": 0,
-	    "image": "...",
+	    "image": "http://www.flipflopsuk.co.uk/wp-content/uploads/2012/03/Mens-Havaianas-Top-Flip-Flops-Blue-Sky-300x300.jpg",
 	    "saleItem": false
 	  },
 	  {
@@ -204,7 +204,7 @@
 	    "type": "Casualwear",
 	    "price": 167.00,
 	    "quantity": 6,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=20365315",
 	    "saleItem": false
 	  },
 	  {
@@ -213,7 +213,7 @@
 	    "type": "Casualwear",
 	    "price": 30.00,
 	    "quantity": 5,
-	    "image": "...",
+	    "image": "https://ak0.scstatic.net/1/cdn2-cont9.sweetcouch.com/141957909851585174-tequila-short-cotton-bright-red-hot.jpg",
 	    "saleItem": false
 	  },
 	  {
@@ -222,7 +222,7 @@
 	    "type": "Casualwear",
 	    "price": 49.99,
 	    "quantity": 9,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=115600887",
 	    "saleItem": false
 	  },
 	  {
@@ -231,7 +231,7 @@
 	    "type": "Casualwear",
 	    "price": [49.99, 39.99],
 	    "quantity": 3,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=157338965",
 	    "saleItem": true
 	  },
 	  {
@@ -240,7 +240,7 @@
 	    "type": "Formalwear",
 	    "price": 75.00,
 	    "quantity": 2,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=29662647",
 	    "saleItem": false
 	  },
 	  {
@@ -249,7 +249,7 @@
 	    "type": "Formalwear",
 	    "price": 175.50,
 	    "quantity": 1,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=166977563",
 	    "saleItem": false
 	  },
 	  {
@@ -258,7 +258,7 @@
 	    "type": "Formalwear",
 	    "price": 270.00,
 	    "quantity": 10,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=61463924",
 	    "saleItem": false
 	  },
 	  {
@@ -267,7 +267,7 @@
 	    "type": "Formalwear",
 	    "price": 540.00,
 	    "quantity": 5,
-	    "image": "...",
+	    "image": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=125654260",
 	    "saleItem": false
 	  }
 	]
@@ -328,32 +328,37 @@
 	
 	HomeView.prototype = {
 	  render: function() {
+	    this.createBasketDisplay();
 	    var itemList = document.getElementById('item-list');
 	    for (var item of this.itemsArray) {
 	      itemList.appendChild(this.createItemDisplay(item));
 	    }
 	  },
+	  createBasketDisplay: function() {
+	    
+	  },
 	  createItemDisplay: function(item) {
 	      var container = document.createElement("li");
 	      var itemDiv = document.createElement("div");
 	      var itemName = document.createElement("p");
+	      var itemCategory = document.createElement("p");
+	      var itemPrice = document.createElement("p");
+	      var itemQuantity = document.createElement("p");
+	      var image = document.createElement("p");
+	
 	      itemName.innerHTML = item.name;
+	      itemCategory.innerHTML = "Category: " + item.category;
+	      itemPrice.innerHTML = "Price: £" + item.price;
+	      itemQuantity.innerHTML = "Quantity: " + item.quantity;
+	      image.innerHTML = "<img src=\"" + item.image + "\">";
 	
 	      itemDiv.appendChild(itemName);
+	      itemDiv.appendChild(itemCategory);
+	      itemDiv.appendChild(itemPrice);
+	      itemDiv.appendChild(itemQuantity);
+	      itemDiv.appendChild(image);
+	
 	      container.appendChild(itemDiv);
-	      // quote.innerHTML = quoteText + " ";
-	      // var author = document.createElement("cite");
-	      // author.innerHTML = authorText;
-	      // quote.appendChild(author);-
-	      // container.appendChild(quote);
-	      // container.appendChild(document.createElement("hr"));
-	      // this.name = params.name;
-	      // this.category = params.category;
-	      // this.type = params.type;
-	      // this.price = params.price;
-	      // this.quantity = params.quantity;
-	      // this.image = params.image;
-	      // this.saleItem = params.saleItem;
 	      return container;
 	  }
 	}
