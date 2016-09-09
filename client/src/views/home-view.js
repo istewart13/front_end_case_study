@@ -5,37 +5,34 @@ var HomeView = function(basket, itemsArray){
 
 HomeView.prototype = {
   render: function() {
-    var item1Display = document.getElementById('item1');
-    item1Display.innerHTML = this.itemsArray[0].name;
+    var itemList = document.getElementById('item-list');
+    for (var item of this.itemsArray) {
+      itemList.appendChild(this.createItemDisplay(item));
+    }
+  },
+  createItemDisplay: function(item) {
+      var container = document.createElement("li");
+      var itemDiv = document.createElement("div");
+      var itemName = document.createElement("p");
+      itemName.innerHTML = item.name;
+
+      itemDiv.appendChild(itemName);
+      container.appendChild(itemDiv);
+      // quote.innerHTML = quoteText + " ";
+      // var author = document.createElement("cite");
+      // author.innerHTML = authorText;
+      // quote.appendChild(author);-
+      // container.appendChild(quote);
+      // container.appendChild(document.createElement("hr"));
+      // this.name = params.name;
+      // this.category = params.category;
+      // this.type = params.type;
+      // this.price = params.price;
+      // this.quantity = params.quantity;
+      // this.image = params.image;
+      // this.saleItem = params.saleItem;
+      return container;
   }
 }
 
 module.exports = HomeView;
-
-
-//     var businessTotalDisplay = document.getElementById('business-total');
-//     var personalTotalDisplay = document.getElementById('personal-total');
-
-//     totalDisplay.innerText = "Total: £" + this.bank.totalCash();
-//     businessTotalDisplay.innerText = "Total Business: £" + this.bank.totalCash('business');
-//     personalTotalDisplay.innerText = "Total Personal: £" + this.bank.totalCash('personal');
-
-//     var businessAccountList = document.getElementById('business-accounts');
-//     var personalAccountList = document.getElementById('personal-accounts');
-
-//     this.populateAccountList(businessAccountList, this.bank.filteredAccounts('business'))
-//     this.populateAccountList(personalAccountList, this.bank.filteredAccounts('personal'))
-//   },
-
-//   createItemForDisplay: function(account){
-//     var item = document.createElement('li');
-//     item.innerText = account.owner + ": £" + account.amount;
-//     return accountListItem;
-//   },
-
-//   populateAccountList:function(listElement, accounts){
-//     for(account of accounts){
-//       listElement.appendChild(this.createItemForAccount(account));
-//     }
-//   }
-// }

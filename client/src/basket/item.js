@@ -4,6 +4,8 @@ var Item = function(params) {
   this.type = params.type;
   this.price = params.price;
   this.quantity = params.quantity;
+  this.image = params.image;
+  this.saleItem = params.saleItem;
 };
 
 Item.prototype = {

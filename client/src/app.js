@@ -7,7 +7,6 @@ var sampleItems = require('../items.json');
 window.onload = function() {
   var itemsArray = [];
   for(item of sampleItems) {
-    // var itemObject = JSON.parse(item);
     itemsArray.push(item);
   }
 
